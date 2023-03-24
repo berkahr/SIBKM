@@ -1,0 +1,15 @@
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\obj\Debug\net6.0\TugasOOP1.csproj.AssemblyReference.cache
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\obj\Debug\net6.0\TugasOOP1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\obj\Debug\net6.0\TugasOOP1.AssemblyInfoInputs.cache
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\obj\Debug\net6.0\TugasOOP1.AssemblyInfo.cs
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\obj\Debug\net6.0\TugasOOP1.csproj.CoreCompileInputs.cache
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\bin\Debug\net6.0\TugasOOP1.exe
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\bin\Debug\net6.0\TugasOOP1.deps.json
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\bin\Debug\net6.0\TugasOOP1.runtimeconfig.json
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\bin\Debug\net6.0\TugasOOP1.dll
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\bin\Debug\net6.0\TugasOOP1.pdb
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\obj\Debug\net6.0\TugasOOP1.dll
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\obj\Debug\net6.0\refint\TugasOOP1.dll
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\obj\Debug\net6.0\TugasOOP1.pdb
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\obj\Debug\net6.0\TugasOOP1.genruntimeconfig.cache
+C:\Users\Pom-pom\source\repos\TugasOOP1\TugasOOP1\obj\Debug\net6.0\ref\TugasOOP1.dll
