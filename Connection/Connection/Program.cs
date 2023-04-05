@@ -1,256 +1,193 @@
-﻿using System.Data.SqlClient;
+﻿using Connection.Controllers;
+using Connection.koneksi;
+using Connection.Models;
+using Connection.Repositories;
+using Connection.Repositories.Interfaces;
+using Connection.Views;
+using System.Data.SqlClient;
 
 namespace Connection;
 
 public class Program
 {
-    private static SqlConnection connection;
-
-    private static string connectionString = "Data Source=DESKTOP-QVABO1H\\SQLSERVER2019;Initial Catalog=db_hr_sibkm;Integrated Security=True;Connect Timeout=30;Encrypt=False";
-
     public static void Main()
     {
-        /*connection = new SqlConnection(connectionString);
-        try
+        var check = true;
+        do
         {
-            connection.Open();
-            Console.WriteLine("Connection Open!");
-            connection.Close();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Connection Failed : " + e);
-        }*/
-
-        //GetAllCountry();
-        //GetByIdCountry("ID");
-        //InsertCountry("PRIOK", "PK", 1);
-        //UpdateRegion("PK", "Priok Terupdate");
-        //DeleteCountry("PK");
+            Console.Clear();
+            Console.WriteLine("=======Database Connectivity=========");
+            Console.WriteLine("1. Manage Table Region");
+            Console.WriteLine("2. Manage Table Country");
+            Console.WriteLine("3. Exit");
+            Console.Write("Input: ");
+            var input = Convert.ToInt16(Console.ReadLine());
+            switch (input)
+            {
+                case 1:
+                    Region();
+                    break;
+                case 2:
+                    Country();
+                    break;
+                case 3:
+                    check = false;
+                    break;
+                default:
+                    Console.WriteLine("Input not found!");
+                    Console.ReadKey();
+                    check = true;
+                    break;
+            }
+        } while (check);
     }
-
-    // GET ALL : Country
-    public static void GetAllCountry()
+    public static void Country()
     {
-        // Membuat instance SQL Server Connection
-        connection = new SqlConnection(connectionString);
-
-        // Membuat instance SQL Command
-        SqlCommand command = new SqlCommand();
-        command.Connection = connection;
-        command.CommandText = "Select * From Country;";
-
-        connection.Open();
-        using SqlDataReader reader = command.ExecuteReader();
-        if (reader.HasRows)
+        ICountryRepository repository = new CountryRepository();
+        VCountry vCountry = new VCountry();
+        CountryController countryController = new CountryController(repository, vCountry);
+        var check = true;
+        do
         {
-            while (reader.Read())
+            Console.Clear();
+            Console.WriteLine("=======Table Region========");
+            Console.WriteLine("1. Get All");
+            Console.WriteLine("2. Get By Id");
+            Console.WriteLine("3. Insert");
+            Console.WriteLine("4. Update");
+            Console.WriteLine("5. Delete");
+            Console.WriteLine("6. Exit");
+            Console.Write("Input: ");
+            var input = Convert.ToInt16(Console.ReadLine());
+            switch (input)
             {
-                Console.WriteLine("Id : " + reader[0]);
-                Console.WriteLine("Name : " + reader[1]);
-                Console.WriteLine("Region : " + reader[2]);
-                Console.WriteLine();
+                case 1:
+                    Console.Clear();
+                    Console.WriteLine("=======GetAll=======");
+                    countryController.GetAll();
+                    Console.ReadKey();
+                    break;
+                case 2:
+                    Console.Clear();
+                    Console.WriteLine("=======GetById=======");
+                    Console.Write("input id : ");
+                    var id = Console.ReadLine();
+                    countryController.GetById(id);
+                    Console.ReadKey();
+                    break;
+                case 3:
+                    Console.Clear();
+                    Console.WriteLine("=======Insert Region=======");
+                    Console.Write("Input Id : ");
+                    var Iid = Console.ReadLine(); 
+                    Console.Write("Input Name : ");
+                    var name = Console.ReadLine();
+                    Console.Write("Input Region : ");
+                    var region = Convert.ToInt32(Console.ReadLine());
+                    countryController.insert(new country { Id = Iid, Name = name, region = region });
+                    Console.ReadKey();
+                    break;
+                case 4:
+                    Console.Clear();
+                    Console.WriteLine("=======Update Region=======");
+                    Console.Write("Input Id : ");
+                    var Uid = Console.ReadLine(); 
+                    Console.Write("Input Name : ");
+                    var Uname = Console.ReadLine();
+                    Console.Write("Input Region : ");
+                    var Uregion = Convert.ToInt32(Console.ReadLine());
+                    countryController.update(new country { Id = Uid, Name = Uname, region = Uregion });
+                    Console.ReadKey();
+                    break;
+                case 5:
+                    Console.Clear();
+                    Console.WriteLine("=======Delete Region=======");
+                    Console.Write("Input Id : ");
+                    var Did = Console.ReadLine();
+                    countryController.delete(Did);
+                    break;
+                case 6:
+                    check = false;
+                    break;
+                default:
+                    Console.WriteLine("Input not found!");
+                    Console.ReadKey();
+                    check = true;
+                    break;
             }
-        }
-        else
-        {
-            Console.WriteLine("Country is Empty!");
-        }
-        reader.Close();
-        connection.Close();
+        } while (check);
     }
-
-    // GET BY ID : Country
-    public static void GetByIdCountry(String id)
+    public static void Region()
     {
-        // Membuat instance SQL Server Connection
-        connection = new SqlConnection(connectionString);
-
-        // Membuat instance SQL Command
-        SqlCommand command = new SqlCommand();
-        command.Connection = connection;
-        command.CommandText = "Select * From Country Where id = @id;";
-
-        // Membuat instance SQL Parameter
-        SqlParameter pId = new SqlParameter();
-        pId.ParameterName = "@id";
-        pId.SqlDbType = System.Data.SqlDbType.VarChar;
-        pId.Value = id;
-        command.Parameters.Add(pId);
-
-        connection.Open();
-        using SqlDataReader reader = command.ExecuteReader();
-        if (reader.HasRows)
+        RegionController regionController = new RegionController(new RegionRepository(), new VRegion());
+        var check = true;
+        do
         {
-            reader.Read();
-
-            Console.WriteLine("Id : " + reader[0]);
-            Console.WriteLine("Name : " + reader[1]);
-            Console.WriteLine("Region : " + reader[2]);
-        }
-        else
-        {
-            Console.WriteLine($"id = {id} is not found!");
-        }
-        reader.Close();
-        connection.Close();
-    }
-
-    // INSERT : Country
-    public static void InsertCountry(String name, String Id, int region)
-    {
-        connection = new SqlConnection(connectionString);
-        connection.Open();
-
-        SqlTransaction transaction = connection.BeginTransaction();
-
-        try
-        {
-            SqlCommand command = new SqlCommand();
-            command.Connection = connection;
-            command.CommandText = "Insert Into Country (name,Id,region) Values (@name,@Id,@region);";
-            command.Transaction = transaction;
-
-            SqlParameter pName = new SqlParameter();
-            pName.ParameterName = "@name";
-            pName.SqlDbType = System.Data.SqlDbType.VarChar;
-            pName.Value = name;
-            command.Parameters.Add(pName);
-
-            SqlParameter pId = new SqlParameter();
-            pId.ParameterName = "@Id";
-            pId.SqlDbType = System.Data.SqlDbType.VarChar;
-            pId.Value = Id;
-            command.Parameters.Add(pId);
-
-            SqlParameter pRegion = new SqlParameter();
-            pRegion.ParameterName = "@region";
-            pRegion.SqlDbType = System.Data.SqlDbType.Int;
-            pRegion.Value = region;
-            command.Parameters.Add(pRegion);
-
-            command.ExecuteNonQuery();
-
-            transaction.Commit();
-            Console.WriteLine("Insert Success!");
-            connection.Close();
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Something Wrong! : " + e.Message);
-            try
+            Console.Clear();
+            Console.WriteLine("=======Table Region========");
+            Console.WriteLine("1. Get All");
+            Console.WriteLine("2. Get By Id");
+            Console.WriteLine("3. Insert");
+            Console.WriteLine("4. Update");
+            Console.WriteLine("5. Delete");
+            Console.WriteLine("6. Exit");
+            Console.Write("Input: ");
+            var input = Convert.ToInt16(Console.ReadLine());
+            switch (input)
             {
-                transaction.Rollback();
+                case 1:
+                    Console.Clear();
+                    Console.WriteLine("=======GetAll=======");
+                    regionController.GetAll();
+                    Console.ReadKey();
+                    break;
+                case 2:
+                    Console.Clear();
+                    Console.WriteLine("=======GetById=======");
+                    Console.Write("Input Id : ");
+                    var id = Convert.ToInt32(Console.ReadLine());
+                    regionController.GetById(id);
+                    Console.ReadKey();
+                    break;
+                case 3:
+                    Console.Clear();
+                    Console.WriteLine("=======Insert Region========");
+                    Console.Write("Input Name: ");
+                    var name = Console.ReadLine();
+                    regionController.Insert(new Region
+                    {
+                        Name = name
+                    });
+                    Console.ReadKey();
+                    break;
+                case 4:
+                    Console.Clear();
+                    Console.WriteLine("=======Update Region=======");
+                    Console.Write("Input Id : ");
+                    var Uid = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Input Name : ");
+                    var Uname = Console.ReadLine();
+                    regionController.Update(new Region { Id = Uid, Name = Uname });
+                    Console.ReadKey();
+                    break;
+                case 5:
+                    Console.Clear();
+                    Console.WriteLine("=======Delete Region=======");
+                    Console.Write("Input Id :");
+                    var Did = Convert.ToInt32(Console.ReadLine());
+                    regionController.Delete(Did);
+                    Console.ReadKey();
+                    break;
+                case 6:
+                    check = false;
+                    break;
+                default:
+                    Console.WriteLine("Input not found!");
+                    Console.ReadKey();
+                    check = true;
+                    break;
             }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
-        }
-    }
+        } while (check);
 
-    // UPDATE : Country
-    public static void UpdateRegion(String id, string name)
-    {
-        connection = new SqlConnection(connectionString);
-        connection.Open();
-
-        SqlTransaction transaction = connection.BeginTransaction();
-
-        try
-        {
-            SqlCommand command = new SqlCommand();
-            command.Connection = connection;
-            command.CommandText = "Update Country Set name = @name Where id = @id;";
-            command.Transaction = transaction;
-
-            SqlParameter pName = new SqlParameter();
-            pName.ParameterName = "@name";
-            pName.SqlDbType = System.Data.SqlDbType.VarChar;
-            pName.Value = name;
-            command.Parameters.Add(pName);
-
-            SqlParameter pId = new SqlParameter();
-            pId.ParameterName = "@id";
-            pId.SqlDbType = System.Data.SqlDbType.VarChar;
-            pId.Value = id;
-            command.Parameters.Add(pId);
-
-            int result = command.ExecuteNonQuery();
-            if (result > 0)
-            {
-                Console.WriteLine("Update Success!");
-            }
-            else
-            {
-                Console.WriteLine($"id = {id} is not found!");
-            }
-
-            transaction.Commit();
-            connection.Close();
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Something Wrong! : " + e.Message);
-            try
-            {
-                transaction.Rollback();
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
-        }
-    }
-
-    // DELETE : Country
-    public static void DeleteCountry(String id)
-    {
-        connection = new SqlConnection(connectionString);
-        connection.Open();
-
-        SqlTransaction transaction = connection.BeginTransaction();
-
-        try
-        {
-            SqlCommand command = new SqlCommand();
-            command.Connection = connection;
-            command.CommandText = "Delete From Country Where id = @id;";
-            command.Transaction = transaction;
-
-            SqlParameter pId = new SqlParameter();
-            pId.ParameterName = "@id";
-            pId.SqlDbType = System.Data.SqlDbType.VarChar;
-            pId.Value = id;
-            command.Parameters.Add(pId);
-
-            int result = command.ExecuteNonQuery();
-            if (result > 0)
-            {
-                Console.WriteLine("Delete Success!");
-            }
-            else
-            {
-                Console.WriteLine($"id = {id} is not found!");
-            }
-
-            transaction.Commit();
-            connection.Close();
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Something Wrong! : " + e.Message);
-            try
-            {
-                transaction.Rollback();
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
-        }
     }
 }
