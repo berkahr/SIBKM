@@ -16,5 +16,9 @@ namespace API.Models
         public string gpa { get; set; }
         [Column("university_id")]
         public int university_id {get; set; }
+        
+        //cardinality
+        public Universities Universities { get; set; }
+        public Profilings Profilings { get; set; }
     }
 }

@@ -10,5 +10,8 @@ namespace API.Models
         public int id { get; set; }
         [Column("name", TypeName = "varchar(100)")]
         public string name { get; set; }
+        
+        //cardinality
+        public ICollection<Educations> Educations { get; set; }
     }
 }

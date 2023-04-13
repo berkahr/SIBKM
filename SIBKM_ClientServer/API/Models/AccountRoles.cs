@@ -11,5 +11,9 @@ namespace API.Models
         public string account_nik { get; set; }
         [Column("role_id")]
         public int role_id { get; set; }
-    }
+        
+        //cardinality
+        public Accounts Accounts { get; set; }
+        public Roles Roles { get; set; }
+     }
 }

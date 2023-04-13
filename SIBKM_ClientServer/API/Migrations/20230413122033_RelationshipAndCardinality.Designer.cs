@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20230409134037_IntialDatabase")]
-    partial class IntialDatabase
+    [Migration("20230413122033_RelationshipAndCardinality")]
+    partial class RelationshipAndCardinality
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,13 +45,17 @@ namespace API.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("account_nik");
+
+                    b.HasIndex("role_id");
+
                     b.ToTable("AccountRoles");
                 });
 
             modelBuilder.Entity("API.Models.Accounts", b =>
                 {
                     b.Property<string>("employee_nik")
-                        .HasColumnType("varchar(5)")
+                        .HasColumnType("char(5)")
                         .HasColumnName("employee_nik");
 
                     b.Property<string>("password")
@@ -93,6 +97,8 @@ namespace API.Migrations
                         .HasColumnName("university_id");
 
                     b.HasKey("id");
+
+                    b.HasIndex("university_id");
 
                     b.ToTable("Educations");
                 });
@@ -146,12 +152,14 @@ namespace API.Migrations
                         .HasColumnType("char(5)")
                         .HasColumnName("employee_nik");
 
-                    b.Property<string>("education_id")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                    b.Property<int>("education_id")
+                        .HasColumnType("int")
                         .HasColumnName("education_id");
 
                     b.HasKey("employee_nik");
+
+                    b.HasIndex("education_id")
+                        .IsUnique();
 
                     b.ToTable("Profilings");
                 });
@@ -192,6 +200,91 @@ namespace API.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Universities");
+                });
+
+            modelBuilder.Entity("API.Models.AccountRoles", b =>
+                {
+                    b.HasOne("API.Models.Accounts", "Accounts")
+                        .WithMany("AccountRoles")
+                        .HasForeignKey("account_nik")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("API.Models.Roles", "Roles")
+                        .WithMany("AccountRoles")
+                        .HasForeignKey("role_id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Accounts");
+
+                    b.Navigation("Roles");
+                });
+
+            modelBuilder.Entity("API.Models.Accounts", b =>
+                {
+                    b.HasOne("API.Models.Employee", "Employee")
+                        .WithOne("Accounts")
+                        .HasForeignKey("API.Models.Accounts", "employee_nik")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("API.Models.Educations", b =>
+                {
+                    b.HasOne("API.Models.Universities", "Universities")
+                        .WithMany("Educations")
+                        .HasForeignKey("university_id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Universities");
+                });
+
+            modelBuilder.Entity("API.Models.Profilings", b =>
+                {
+                    b.HasOne("API.Models.Educations", "Educations")
+                        .WithOne("Profilings")
+                        .HasForeignKey("API.Models.Profilings", "education_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("API.Models.Employee", "Employee")
+                        .WithOne("Profilings")
+                        .HasForeignKey("API.Models.Profilings", "employee_nik")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Educations");
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("API.Models.Accounts", b =>
+                {
+                    b.Navigation("AccountRoles");
+                });
+
+            modelBuilder.Entity("API.Models.Educations", b =>
+                {
+                    b.Navigation("Profilings");
+                });
+
+            modelBuilder.Entity("API.Models.Employee", b =>
+                {
+                    b.Navigation("Accounts")
+                        .IsRequired();
+
+                    b.Navigation("Profilings")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("API.Models.Roles", b =>
+                {
+                    b.Navigation("AccountRoles");
+                });
+
+            modelBuilder.Entity("API.Models.Universities", b =>
+                {
+                    b.Navigation("Educations");
                 });
 #pragma warning restore 612, 618
         }

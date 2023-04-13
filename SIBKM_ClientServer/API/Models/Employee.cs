@@ -21,6 +21,10 @@ namespace API.Models
         public string email { get; set; }
         [Column("phone_number", TypeName = "varchar(50)")]
         public string phone_number { get; set; }
+        
+        //cardinality
+        public Profilings Profilings { get; set; }
+        public Accounts Accounts { get; set; }
     }
 }
 

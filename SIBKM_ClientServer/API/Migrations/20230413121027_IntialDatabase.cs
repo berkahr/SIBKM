@@ -29,7 +29,7 @@ namespace API.Migrations
                 name: "Accounts",
                 columns: table => new
                 {
-                    employee_nik = table.Column<string>(type: "varchar(5)", nullable: false),
+                    employee_nik = table.Column<string>(type: "char(5)", nullable: false),
                     password = table.Column<string>(type: "varchar(255)", nullable: false)
                 },
                 constraints: table =>
@@ -76,7 +76,7 @@ namespace API.Migrations
                 columns: table => new
                 {
                     employee_nik = table.Column<string>(type: "char(5)", nullable: false),
-                    education_id = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    education_id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
