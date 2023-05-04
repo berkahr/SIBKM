@@ -1,12 +1,9 @@
 ﻿using API.Models;
+
 namespace API.Repositories.Interface
 {
-    public interface IUniversitiesRepository
+    public interface IUniversitiesRepository : IGeneralRepository<Universities, int>
     {
-        IEnumerable<Universities> GetAll();
-        Universities? GetById(int id);
-        int Insert(Universities universities);
-        int Update(Universities universities);
-        int Delete(int id);
+
     }
 }

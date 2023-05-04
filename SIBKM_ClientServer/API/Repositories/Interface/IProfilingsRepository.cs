@@ -1,12 +1,9 @@
 ﻿using API.Models;
+
 namespace API.Repositories.Interface
 {
-    public interface IProfilingsRepository
+    public interface IProfilingsRepository : IGeneralRepository<Profilings, string>
     {
-        IEnumerable<Profilings> GetAll();
-        Profilings? GetById(string employee_nik);
-        int Insert(Profilings profilings);
-        int Update(Profilings profilings);
-        int Delete(string employee_nik);
+
     }
 }

@@ -1,12 +1,10 @@
 ﻿using API.Models;
+using System.Data;
+
 namespace API.Repositories.Interface
 {
-    public interface IRolesRepository
+    public interface IRolesRepository : IGeneralRepository<Roles, int>
     {
-        IEnumerable<Roles> GetAll();
-        Roles? GetById(int id);
-        int Insert(Roles roles);
-        int Update(Roles roles);
-        int Delete(int id);
+
     }
 }

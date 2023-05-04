@@ -1,7 +1,6 @@
 using API.Context;
 using API.Repositories.Data;
 using API.Repositories.Interface;
-using API.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,10 +17,11 @@ builder.Services.AddDbContext<MyContext>(options => options.UseSqlServer(connect
 builder.Services.AddScoped<IUniversitiesRepository, UniversitiesRepository>();
 builder.Services.AddScoped<IRolesRepository, RolesRepository>();
 builder.Services.AddScoped<IProfilingsRepository,ProfilingsRepository>();
-builder.Services.AddScoped<IEmlpoyeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEducationsRepository, EducationRepository>();
-builder.Services.AddScoped<IAccountsRepository, AccountsRepository>();
+builder.Services.AddScoped<IAccountsRepository, AccountRepository>();
 builder.Services.AddScoped<IAccountRolesRepository, AccountRolesRepository>();
+//builder.Services.AddScoped(typeof(IGeneralRepository<,>), typeof(GeneralRepository<,,>));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

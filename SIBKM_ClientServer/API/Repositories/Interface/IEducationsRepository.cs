@@ -2,12 +2,8 @@
 
 namespace API.Repositories.Interface
 {
-    public interface IEducationsRepository
+    public interface IEducationsRepository : IGeneralRepository<Educations, int>
     {
-        IEnumerable<Educations> GetAll();
-        Educations? GetById(int id);
-        int Insert(Educations educations);
-        int Update(Educations educations);
-        int Delete(int id);
+
     }
 }

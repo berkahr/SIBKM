@@ -2,12 +2,8 @@
 
 namespace API.Repositories.Interface
 {
-    public interface IAccountRolesRepository
+    public interface IAccountRolesRepository : IGeneralRepository<AccountRoles, int>
     {
-        IEnumerable<AccountRoles> GetAll();
-        AccountRoles? GetById(int id);
-        int Insert(AccountRoles accountRoles);
-        int Update(AccountRoles accountRoles);
-        int Delete(int id);
+
     }
 }
