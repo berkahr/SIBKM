@@ -1,4 +1,5 @@
 ﻿using API.Context;
+using API.Handlers;
 using API.Models;
 using API.Repositories.Interface;
 using API.ViewModels;
@@ -17,8 +18,16 @@ namespace API.Repositories.Data
             {
                 name = registerVM.UniversitiesName,
             };
-            _context.Set<Universities>().Add(universities);
-            result = _context.SaveChanges();
+
+            if (_context.Universities.Any(u => u.name.Contains(registerVM.UniversitiesName)))
+            {
+                universities.id = _context.Universities.FirstOrDefault(u => u.name.Contains(registerVM.UniversitiesName))!.id;
+            }
+            else
+            {
+                _context.Set<Universities>().Add(universities);
+                result = _context.SaveChanges();
+            }
 
             //insert to education table
             var educations = new Educations
@@ -81,21 +90,21 @@ namespace API.Repositories.Data
             //Gabungkan data dari tabel employee dengan tabel account berdasarkan NIK
             //Cocokan data tersebut dengan Password yang diinputkan
             //Cek apakah data valid atau tidak
-            var employees = _context.Employees.FirstOrDefault(e => e.email == loginVM.Email);
-            if (employees == null)
+            var getEmployeeAccount = _context.Employees.Join(_context.Accounts,
+                                                     e => e.nik,
+                                                     a => a.employee_nik,
+                                                     (e, a) => new
+                                                     {
+                                                         Email = e.email,
+                                                         Password = a.password
+                                                     }).FirstOrDefault(e => e.Email == loginVM.Email);
+
+            if (getEmployeeAccount == null)
             {
                 return false;
             }
-            var accounts = _context.Accounts.FirstOrDefault(e => e.employee_nik == employees.nik);
-            if (accounts == null)
-            {
-                return false;
-            }
-            if(accounts.password != loginVM.Password)
-            {
-                return false;
-            }
-            return false;
+
+            return Hashing.ValidatePassword(loginVM.Password, getEmployeeAccount.Password);
         }
     }
 }
