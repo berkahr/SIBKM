@@ -2,8 +2,8 @@
 
 namespace API.Repositories.Interface
 {
-    public interface IAccountRolesRepository : IGeneralRepository<AccountRoles, int>
+    public interface IAccountRoleRepository : IGeneralRepository<AccountRoles, int>
     {
-
+        IEnumerable<string> GetRolesByEmail(string email);
     }
 }
