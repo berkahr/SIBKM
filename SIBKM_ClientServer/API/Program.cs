@@ -1,5 +1,6 @@
 using API.Context;
 using API.Handlers;
+using API.Repositories;
 using API.Repositories.Data;
 using API.Repositories.Interface;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -27,7 +28,21 @@ builder.Services.AddScoped<IEducationsRepository, EducationRepository>();
 builder.Services.AddScoped<IAccountsRepository, AccountRepository>();
 builder.Services.AddScoped<IAccountRoleRepository, AccountRoleRepository>();
 builder.Services.AddTransient<ITokenService, TokenService>();
-
+/*builder.Services.AddScoped(typeof(IGeneralRepository<,>), typeof(GeneralRepository<,,>));
+*/
+// Configure CORS
+builder.Services.AddCors(options => {
+    options.AddDefaultPolicy(policy => {
+        policy.AllowAnyOrigin();
+        policy.AllowAnyMethod();
+        policy.AllowAnyHeader();
+    });
+    /*options.AddPolicy("AnotherPolicy", policy => {
+        policy.WithOrigins("https://www.websiteclient.com/");
+        policy.WithMethods("GET", "POST", "PUT");
+        policy.AllowAnyHeader();
+    });*/
+});
 // Configure JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
        .AddJwtBearer(options => {
