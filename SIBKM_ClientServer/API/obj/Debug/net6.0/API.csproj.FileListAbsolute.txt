@@ -85,3 +85,5 @@ C:\Users\Pom-pom\source\repos\SIBKM_ClientServer\API\obj\Debug\net6.0\refint\API
 C:\Users\Pom-pom\source\repos\SIBKM_ClientServer\API\obj\Debug\net6.0\API.pdb
 C:\Users\Pom-pom\source\repos\SIBKM_ClientServer\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 C:\Users\Pom-pom\source\repos\SIBKM_ClientServer\API\obj\Debug\net6.0\ref\API.dll
+C:\Users\Pom-pom\source\repos\SIBKM_ClientServer\API\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Users\Pom-pom\source\repos\SIBKM_ClientServer\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

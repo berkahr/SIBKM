@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "2DrwPP2zpU08V1ecFCrLzeKDLtIqsg06FWkCFeld0BM=",
+  "Hash": "yHYq6Asd4+pr5XGVsSyKuZsIoUr/fkf73IQnYAaAJ8k=",
   "Source": "Client",
   "BasePath": "_content/Client",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Pom-pom\\source\\repos\\SIBKM_ClientServer\\API\\API.csproj",
+      "Version": 2,
+      "Source": "API",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
   "DiscoveryPatterns": [
     {
       "Name": "Client\\wwwroot",

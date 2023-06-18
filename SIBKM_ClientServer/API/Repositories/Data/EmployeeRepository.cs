@@ -1,6 +1,7 @@
 ﻿using API.Context;
 using API.Models;
 using API.Repositories.Interface;
+using API.ViewModels;
 
 namespace API.Repositories.Data
 {
@@ -11,6 +12,16 @@ namespace API.Repositories.Data
         {
             var employee = _context.Employees.FirstOrDefault(e => e.email == email)!;
             return employee.first_name + " " + employee.last_name;
+        }
+
+        public bool Login(LoginVM loginVm)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Register(RegisterVM registerVM)
+        {
+            throw new NotImplementedException();
         }
     }
 }

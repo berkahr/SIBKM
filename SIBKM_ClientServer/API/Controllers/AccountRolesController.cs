@@ -11,8 +11,8 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountRolesController : GeneralController<IAccountRolesRepository, AccountRoles, int>
+    public class AccountRolesController : GeneralController<IAccountRoleRepository, AccountRoles, int>
     {
-        public AccountRolesController(IAccountRolesRepository repository) : base(repository) { }
+        public AccountRolesController(IAccountRoleRepository repository) : base(repository) { }
     }
 }
