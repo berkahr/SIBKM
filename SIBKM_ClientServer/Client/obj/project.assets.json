@@ -1826,23 +1826,6 @@
           }
         }
       },
-      "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/5.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "11.0.2",
-          "System.Collections.Immutable": "1.7.0"
-        },
-        "compile": {
-          "lib/net5.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net5.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.VisualStudio.Web.CodeGeneration.Core/6.0.14": {
         "type": "package",
         "dependencies": {
@@ -6297,20 +6280,6 @@
         "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.xml",
         "microsoft.visualstudio.web.codegeneration.6.0.14.nupkg.sha512",
         "microsoft.visualstudio.web.codegeneration.nuspec"
-      ]
-    },
-    "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/5.0.2": {
-      "sha512": "34v6AkkRJykgFq7rHwNbzXBsLFquevLuegM9XDQl2j+wyOfj+ql1++jUR1WdZoPkv04WoM09mD47S3lMzJmHrQ==",
-      "type": "package",
-      "path": "microsoft.visualstudio.web.codegeneration.contracts/5.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/net5.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll",
-        "lib/net5.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.xml",
-        "microsoft.visualstudio.web.codegeneration.contracts.5.0.2.nupkg.sha512",
-        "microsoft.visualstudio.web.codegeneration.contracts.nuspec"
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Core/6.0.14": {
@@ -11399,7 +11368,6 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "API >= 1.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Contracts >= 5.0.2",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.14",
       "Newtonsoft.Json >= 13.0.3",
       "System.Text.Json >= 7.0.0"
@@ -11448,10 +11416,6 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
-          "Microsoft.VisualStudio.Web.CodeGeneration.Contracts": {
-            "target": "Package",
-            "version": "[5.0.2, )"
-          },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[6.0.14, )"

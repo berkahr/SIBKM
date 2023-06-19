@@ -9,7 +9,6 @@
       "Client/1.0.0": {
         "dependencies": {
           "API": "1.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Contracts": "5.0.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.14",
           "Newtonsoft.Json": "13.0.3",
           "System.Text.Json": "7.0.0"
@@ -1480,18 +1479,6 @@
           "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.dll": {
             "assemblyVersion": "6.0.14.0",
             "fileVersion": "6.0.1423.31102"
-          }
-        }
-      },
-      "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/5.0.2": {
-        "dependencies": {
-          "Newtonsoft.Json": "13.0.3",
-          "System.Collections.Immutable": "6.0.0"
-        },
-        "runtime": {
-          "lib/net5.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {
-            "assemblyVersion": "5.0.2.0",
-            "fileVersion": "5.0.221.10809"
           }
         }
       },
@@ -3426,13 +3413,6 @@
       "sha512": "sha512-HaJ62Um+f2C/94kghlaEsEijFyVYzcqlbomMq8Dsr7WsAcQQM+4UKlzG2fw7hluQ04ncW5/3WmBRKdsFuFBa7A==",
       "path": "microsoft.visualstudio.web.codegeneration/6.0.14",
       "hashPath": "microsoft.visualstudio.web.codegeneration.6.0.14.nupkg.sha512"
-    },
-    "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/5.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-34v6AkkRJykgFq7rHwNbzXBsLFquevLuegM9XDQl2j+wyOfj+ql1++jUR1WdZoPkv04WoM09mD47S3lMzJmHrQ==",
-      "path": "microsoft.visualstudio.web.codegeneration.contracts/5.0.2",
-      "hashPath": "microsoft.visualstudio.web.codegeneration.contracts.5.0.2.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Core/6.0.14": {
       "type": "package",

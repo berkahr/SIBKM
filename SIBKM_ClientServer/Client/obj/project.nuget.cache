@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "W08kEeEhjDta1igh7aIjfeolJWbT2CBk2uEnBJQEqb5SNGRjm9QZR7GOnFdZEMkB1x9hAvS9jPz+4jE7Lev45w==",
+  "dgSpecHash": "JEJpXe6il85p5eLnHSDHusu1HCff7Z9g+nj2GfOZE6GFP/IQaaynqW4JcCIh6+VuYIS0uV2swWl+rj35A2QCmw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pom-pom\\source\\repos\\SIBKM_ClientServer\\Client\\Client.csproj",
   "expectedPackageFiles": [
@@ -110,7 +110,6 @@
     "C:\\Users\\Pom-pom\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\Pom-pom\\.nuget\\packages\\microsoft.visualstudio.debugger.contracts\\17.2.0\\microsoft.visualstudio.debugger.contracts.17.2.0.nupkg.sha512",
     "C:\\Users\\Pom-pom\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\6.0.14\\microsoft.visualstudio.web.codegeneration.6.0.14.nupkg.sha512",
-    "C:\\Users\\Pom-pom\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\5.0.2\\microsoft.visualstudio.web.codegeneration.contracts.5.0.2.nupkg.sha512",
     "C:\\Users\\Pom-pom\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\6.0.14\\microsoft.visualstudio.web.codegeneration.core.6.0.14.nupkg.sha512",
     "C:\\Users\\Pom-pom\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.design\\6.0.14\\microsoft.visualstudio.web.codegeneration.design.6.0.14.nupkg.sha512",
     "C:\\Users\\Pom-pom\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.entityframeworkcore\\6.0.14\\microsoft.visualstudio.web.codegeneration.entityframeworkcore.6.0.14.nupkg.sha512",

@@ -36,8 +36,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Pom-pom/source/repos/SIBKM_ClientServer/Client/Views/University/View.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0eVxWaWV3LmNzaHRtbA==
+[C:/Users/Pom-pom/source/repos/SIBKM_ClientServer/Client/Views/TestCors/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdENvcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pom-pom/source/repos/SIBKM_ClientServer/Client/Views/Universitie/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0aWVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pom-pom/source/repos/SIBKM_ClientServer/Client/Views/Universitie/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0aWVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pom-pom/source/repos/SIBKM_ClientServer/Client/Views/Universitie/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0aWVcRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pom-pom/source/repos/SIBKM_ClientServer/Client/Views/Universitie/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0aWVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Pom-pom/source/repos/SIBKM_ClientServer/Client/Views/_ViewImports.cshtml]

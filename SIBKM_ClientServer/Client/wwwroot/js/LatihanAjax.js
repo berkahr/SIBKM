@@ -1,4 +1,10 @@
-﻿
+﻿console.log("testingggggggg");
+
+//$("h1").html("berubah");
+//$(".test").html("berubah 2");
+//$("#test2").html("berubah 3");
+
+//ajax
 $.ajax({
     url: "https://pokeapi.co/api/v2/pokemon", //OpenAPI
     //success: function (result) {
@@ -22,7 +28,6 @@ $.ajax({
         </tr>`
     })
     $("#tbodyPoke").html(temp);
-
 }).fail((error) => {
     console.log(error);
 })
@@ -33,17 +38,23 @@ function detail(stringUrl) {
     }).done(function (res) {
         console.log(res);
         $("#pokeName").text(res.name);
+        $("#pokeWeight").text("Weight: " + res.weight);
+        $("#pokeHeight").text("Height: " + res.height);
+        $("#pokeHP").text("HP: " + res.stats[0].base_stat);
+        $("#pokeMoves").text("Moves: " + res.moves[0].move.name);
+        $("#pokeAbility").text("Ability: " + res.abilities[0].ability.name);
         $("#pokeImage").attr("src", res.sprites.front_default);
+
+        $("#pokeATK").text("Atk: " + res.stats[1].base_stat);
+        $("#pokeDEF").text("Def: " + res.stats[2].base_stat);
+        $("#pokeSATK").text("S.Atk: " + res.stats[3].base_stat);
+        $("#pokeSDEF").text("S.Def: " + res.stats[4].base_stat);
         $("#modalPoke").modal("show");
-        $("#pokeHp").text("HP : " + res.stats[0].base_stat);
-        $("#pokeAtk").text("Attack : " + res.stats[1].base_stat);
-        $("#pokeDef").text("Defense : " + res.stats[2].base_stat);
-        $("#pokeSA").text("S.Attack : " + res.stats[3].base_stat);
-        $("#pokeSD").text("S.Defense : " + res.stats[4].base_stat);
-        $("#pokeSpd").text("Speed : " + res.stats[5].base_stat);
-        $("#pokeAbility").text("Abilitiy : " + res.abilities[0].ability.name);
-        $("#pokeMove").text("Move : " + res.moves[0].move.name);
-        $("#pokeHeight").text("Height : " + res.height);
-        $("#pokeWeight").text("Weight : " + res.weight);
     });
 }
+
+//$(`.modal-body`).html(`
+// <div class="container-fluid">
+//        <div class="row">
+//            <div class="col-md-4">
+//`)
