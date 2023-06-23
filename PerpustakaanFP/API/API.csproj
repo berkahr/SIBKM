@@ -19,9 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Folder Include="Handlers\" />
+    <Folder Include="Repositories\Data\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>
