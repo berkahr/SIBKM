@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace API.Repositories
 {
-    public class GeneralRepository<TEntity, TKey, TContext> : IGeneralRepository<TEntity, TKey>
+    public class GeneralRepositories<TEntity, TKey, TContext> : IGeneralRepository<TEntity, TKey>
         where TEntity : class
         where TContext : MyContext
     {
         protected readonly TContext _context;
-        public GeneralRepository(TContext context)
+        public GeneralRepositories(TContext context)
         {
             _context = context;
         }

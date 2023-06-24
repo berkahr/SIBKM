@@ -9,7 +9,7 @@ namespace API.Model
     {
         [Key, Column("Id")]
         public int Id { get; set; }
-        [Key, Column(name: "FirstName", TypeName = "varchar(25)")]
+        [Column(name: "FirstName", TypeName = "varchar(25)")]
         public String FirstName { get; set; }
         [Column(name: "LastName", TypeName = "varchar(25)")]
         public String LastName { get; set; }
