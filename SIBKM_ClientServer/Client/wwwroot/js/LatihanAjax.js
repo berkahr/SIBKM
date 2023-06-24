@@ -1,9 +1,4 @@
-﻿console.log("testingggggggg");
-
-//$("h1").html("berubah");
-//$(".test").html("berubah 2");
-//$("#test2").html("berubah 3");
-
+﻿
 //ajax
 $.ajax({
     url: "https://pokeapi.co/api/v2/pokemon", //OpenAPI

@@ -15,15 +15,17 @@ namespace API.Model
         public int MemberId { get; set; }
         [Column(name: "BookId")]
         public int BookId { get; set; }
-        [Column(name: "BorrowDate", TypeName = "date")]
-        public DateOnly BorrowDate { get; set; }
-        [Column(name:"Returndate", TypeName = "date")]
-        public DateOnly ReturnDate { get; set; }
+        [Column(name: "BorrowDate", TypeName = "datetime")]
+        public DateTime BorrowDate { get; set; }
+        [Column(name:"Returndate", TypeName = "datetime")]
+        public DateTime ReturnDate { get; set; }
         [Column(name: "Fine")]
         public int Fine { get; set; }
 
         //cardinality
         [JsonIgnore]
-        public Book? Book { get; set; }
+        public ICollection<Book> Book { get; set; }
+        [JsonIgnore]
+        public Member Member { get; set; }
     }
 }
