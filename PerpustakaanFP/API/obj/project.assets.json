@@ -3878,19 +3878,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\arya\\.nuget\\packages\\": {}
+    "C:\\Users\\Pom-pom\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\tugas kalbis\\Magang\\MAGANG\\C# MAGANG\\Tugas kelompok\\SIBKM\\PerpustakaanFP\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Pom-pom\\source\\repos\\PerpustakaanFP\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "F:\\tugas kalbis\\Magang\\MAGANG\\C# MAGANG\\Tugas kelompok\\SIBKM\\PerpustakaanFP\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\arya\\.nuget\\packages\\",
-      "outputPath": "F:\\tugas kalbis\\Magang\\MAGANG\\C# MAGANG\\Tugas kelompok\\SIBKM\\PerpustakaanFP\\API\\obj\\",
+      "projectPath": "C:\\Users\\Pom-pom\\source\\repos\\PerpustakaanFP\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\Pom-pom\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pom-pom\\source\\repos\\PerpustakaanFP\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\arya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pom-pom\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

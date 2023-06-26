@@ -19,5 +19,7 @@ namespace API.Model
         [Column(name: "PublicationYear", TypeName = "varchar(4)")]
         public string PublicationYear { get; set; }
 
+        //cardinality
+        public Borrow Borrow { get; set; }
     }
 }

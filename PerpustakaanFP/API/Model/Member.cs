@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using API.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
@@ -19,10 +20,10 @@ namespace API.Model
         public string Address { get; set; }
         [Column(name: "Email", TypeName = "varchar(50)")]
         public string Email { get; set; }
-        [Column("password", TypeName = "varchar(255)")]
-        public string password { get; set; }
         //cardinality
         [JsonIgnore]
-        public Borrow? Borrow { get; set; }
+        public ICollection<Borrow> Borrow { get; set; }
+        [JsonIgnore]
+        public Accounts Accounts { get; set; }
     }
 }
