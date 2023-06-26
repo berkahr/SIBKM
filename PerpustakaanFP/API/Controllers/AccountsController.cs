@@ -13,7 +13,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+/*    [Authorize]*/
     public class AccountsController : GeneralController<IAccountsRepository, Accounts, string>
     {
         private readonly ITokenService _tokenService;
