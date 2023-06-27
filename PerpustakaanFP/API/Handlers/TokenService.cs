@@ -27,7 +27,7 @@ public class TokenService : ITokenService
                                                 issuer: _configuration["JWT:Issuer"],
                                                 audience: _configuration["JWT:Audience"],
                                                 claims: claims,
-                                                expires: DateTime.Now.AddMinutes(2),
+                                                expires: DateTime.Now.AddMinutes(5),
                                                 signingCredentials: signinCredentials
                                                );
 

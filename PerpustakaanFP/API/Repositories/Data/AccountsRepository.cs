@@ -50,15 +50,6 @@ namespace API.Repositories.Data
             _context.Set<Member>().Add(member);
             result += _context.SaveChanges();
 
-            //insert to Account table
-            var accounts = new Accounts
-            {
-                memberId = registerVM.Id,
-                password = registerVM.Password
-            };
-            _context.Set<Accounts>().Add(accounts);
-            result += _context.SaveChanges();
-
             //insert to AccountRole table
             var accountRoles = new AccountRoles
             {
@@ -91,6 +82,20 @@ namespace API.Repositories.Data
             }
 
             return Hashing.ValidatePassword(loginVM.Password, getMemberAccount.Password);
+        }
+        public int Register(RegisterAccountVM registerAccountVM)
+        {
+            int result = 0;
+            //insert to Account table
+            var accounts = new Accounts
+            {
+                memberId = registerAccountVM.Id,
+                password = Hashing.HashPassword(registerAccountVM.Password)
+            };
+            _context.Set<Accounts>().Add(accounts);
+            result += _context.SaveChanges();
+
+            return result;
         }
     }
 }

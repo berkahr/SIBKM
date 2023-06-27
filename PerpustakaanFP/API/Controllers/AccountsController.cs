@@ -13,7 +13,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class AccountsController : GeneralController<IAccountsRepository, Accounts, string>
     {
         private readonly ITokenService _tokenService;
@@ -70,9 +70,9 @@ namespace API.Controllers
 
         [AllowAnonymous]
         [HttpPost("Register")]
-        public ActionResult Register(RegisterVM registerVM)
+        public ActionResult Register(RegisterAccountVM registerAccountVM)
         {
-            var register = _repository.Register(registerVM);
+            var register = _repository.Register(registerAccountVM);
             if (register > 0)
             {
                 return Ok(new ResponseDataVM<string>

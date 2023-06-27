@@ -5,7 +5,7 @@ namespace API.Repositories.Interface
 {
     public interface IAccountsRepository : IGeneralRepository<Accounts, string>
     {
-        int Register(RegisterVM registerVM);
+        int Register(RegisterAccountVM registerAccountVM);
         bool Login(LoginVM loginVm);
     }
 }
