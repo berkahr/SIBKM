@@ -21,9 +21,9 @@ namespace API.Model
         [Column(name: "Email", TypeName = "varchar(50)")]
         public string Email { get; set; }
         //cardinality
+/*        [JsonIgnore]
+        public Borrow Borrow { get; set; }
         [JsonIgnore]
-        public ICollection<Borrow> Borrow { get; set; }
-        [JsonIgnore]
-        public Accounts Accounts { get; set; }
+        public Accounts Accounts { get; set; }*/
     }
 }

@@ -19,42 +19,42 @@ namespace API.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            // One Anggora has many Meminjam
-            modelBuilder.Entity<Member>()
-                        .HasMany(m => m.Borrow)
-                        .WithOne(b => b.Member)
-                        .IsRequired(false)
-                        .HasForeignKey(m => m.MemberId)
-                        .OnDelete(DeleteBehavior.Restrict);
-            // One Meminjam has many Buku
+            /*            // One Anggora has many Meminjam
+                        modelBuilder.Entity<Member>()
+                                    .HasMany(m => m.Borrow)
+                                    .WithOne(b => b.Member)
+                                    .IsRequired(false)
+                                    .HasForeignKey(m => m.MemberId)
+                                    .OnDelete(DeleteBehavior.Restrict);*/
+            /*// One Meminjam has many Buku
             modelBuilder.Entity<Borrow>()
                         .HasMany(b => b.Book)
                         .WithOne(bo => bo.Borrow)
                         .IsRequired(false)
                         .HasForeignKey(b => b.Id)
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict);*/
             // One member has one Account
-            modelBuilder.Entity<Member>()
+/*            modelBuilder.Entity<Member>()
                         .HasOne(m => m.Accounts)
                         .WithOne(a => a.Member)
                         .IsRequired(false)
                         .HasForeignKey<Accounts>(e => e.memberId)
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict);*/
             // One Account has many AccountRole
-            modelBuilder.Entity<Accounts>()
-                        .HasMany(e => e.AccountRoles)
-                        .WithOne(a => a.Accounts)
-                        .IsRequired(false)
-                        .HasForeignKey(a => a.AccountId)
-                        .OnDelete(DeleteBehavior.Restrict);
-
-            // Many AccountRole has one Role
-            modelBuilder.Entity<AccountRoles>()
-                        .HasOne(a => a.Roles)
-                        .WithMany(r => r.AccountRoles)
-                        .IsRequired(false)
-                        .HasForeignKey(r => r.role_id)
-                        .OnDelete(DeleteBehavior.Restrict);
+            /*            modelBuilder.Entity<Accounts>()
+                                    .HasMany(e => e.AccountRoles)
+                                    .WithOne(a => a.Accounts)
+                                    .IsRequired(false)
+                                    .HasForeignKey(a => a.AccountId)
+                                    .OnDelete(DeleteBehavior.Restrict);
+            */
+            /*         // Many AccountRole has one Role
+                     modelBuilder.Entity<AccountRoles>()
+                                 .HasOne(a => a.Roles)
+                                 .WithMany(r => r.AccountRoles)
+                                 .IsRequired(false)
+                                 .HasForeignKey(r => r.role_id)
+                                 .OnDelete(DeleteBehavior.Restrict);*/
         }
     }
 }

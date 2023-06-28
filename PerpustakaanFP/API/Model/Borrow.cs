@@ -23,9 +23,9 @@ namespace API.Model
         public int Fine { get; set; }
 
         //cardinality
+/*        [JsonIgnore]
+        public Book Book { get; set; }
         [JsonIgnore]
-        public ICollection<Book> Book { get; set; }
-        [JsonIgnore]
-        public Member Member { get; set; }
+        public Member Member { get; set; }*/
     }
 }

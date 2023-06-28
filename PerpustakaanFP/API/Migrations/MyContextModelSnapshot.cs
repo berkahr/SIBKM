@@ -25,8 +25,11 @@ namespace API.Migrations
             modelBuilder.Entity("API.Model.Book", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Author")
                         .IsRequired()
@@ -37,6 +40,9 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(255)")
                         .HasColumnName("BookTitle");
+
+                    b.Property<int>("BorrowId")
+                        .HasColumnType("int");
 
                     b.Property<string>("PublicationYear")
                         .IsRequired()
@@ -55,7 +61,9 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Book", (string)null);
+                    b.HasIndex("BorrowId");
+
+                    b.ToTable("Book");
                 });
 
             modelBuilder.Entity("API.Model.Borrow", b =>
@@ -95,7 +103,7 @@ namespace API.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("Borrow", (string)null);
+                    b.ToTable("Borrow");
                 });
 
             modelBuilder.Entity("API.Model.Member", b =>
@@ -134,7 +142,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Member", (string)null);
+                    b.ToTable("Member");
                 });
 
             modelBuilder.Entity("API.Models.AccountRoles", b =>
@@ -160,7 +168,7 @@ namespace API.Migrations
 
                     b.HasIndex("role_id");
 
-                    b.ToTable("AccountRoles", (string)null);
+                    b.ToTable("AccountRoles");
                 });
 
             modelBuilder.Entity("API.Models.Accounts", b =>
@@ -176,7 +184,7 @@ namespace API.Migrations
 
                     b.HasKey("memberId");
 
-                    b.ToTable("Accounts", (string)null);
+                    b.ToTable("Accounts");
                 });
 
             modelBuilder.Entity("API.Models.Roles", b =>
@@ -195,15 +203,16 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("API.Model.Book", b =>
                 {
                     b.HasOne("API.Model.Borrow", "Borrow")
                         .WithMany("Book")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("BorrowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Borrow");
                 });

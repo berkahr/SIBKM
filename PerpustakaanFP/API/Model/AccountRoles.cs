@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace API.Models
 {
@@ -11,9 +12,11 @@ namespace API.Models
         public int AccountId { get; set; }
         [Column("role_id")]
         public int role_id { get; set; }
-        
+
         //cardinality
+/*        [JsonIgnore]
         public Accounts Accounts { get; set; }
-        public Roles Roles { get; set; }
+        [JsonIgnore]
+        public Roles Roles { get; set; }*/
      }
 }

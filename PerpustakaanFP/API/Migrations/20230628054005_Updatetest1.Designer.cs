@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20230624200505_FirstDb")]
-    partial class FirstDb
+    [Migration("20230628054005_Updatetest1")]
+    partial class Updatetest1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,8 +28,11 @@ namespace API.Migrations
             modelBuilder.Entity("API.Model.Book", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Author")
                         .IsRequired()
@@ -40,6 +43,9 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(255)")
                         .HasColumnName("BookTitle");
+
+                    b.Property<int>("BorrowId")
+                        .HasColumnType("int");
 
                     b.Property<string>("PublicationYear")
                         .IsRequired()
@@ -57,6 +63,8 @@ namespace API.Migrations
                         .HasColumnName("Type");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BorrowId");
 
                     b.ToTable("Book");
                 });
@@ -111,22 +119,27 @@ namespace API.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("varchar(255)")
                         .HasColumnName("Address");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("varchar(50)")
                         .HasColumnName("Email");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("varchar(25)")
                         .HasColumnName("FirstName");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("varchar(25)")
                         .HasColumnName("LastName");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("varchar(20)")
                         .HasColumnName("PhoneNumber");
 
@@ -200,8 +213,9 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Model.Borrow", "Borrow")
                         .WithMany("Book")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("BorrowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Borrow");
                 });
