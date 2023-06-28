@@ -55,7 +55,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Book");
+                    b.ToTable("Book", (string)null);
                 });
 
             modelBuilder.Entity("API.Model.Borrow", b =>
@@ -95,7 +95,7 @@ namespace API.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("Borrow");
+                    b.ToTable("Borrow", (string)null);
                 });
 
             modelBuilder.Entity("API.Model.Member", b =>
@@ -134,7 +134,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Member");
+                    b.ToTable("Member", (string)null);
                 });
 
             modelBuilder.Entity("API.Models.AccountRoles", b =>
@@ -160,7 +160,7 @@ namespace API.Migrations
 
                     b.HasIndex("role_id");
 
-                    b.ToTable("AccountRoles");
+                    b.ToTable("AccountRoles", (string)null);
                 });
 
             modelBuilder.Entity("API.Models.Accounts", b =>
@@ -176,7 +176,7 @@ namespace API.Migrations
 
                     b.HasKey("memberId");
 
-                    b.ToTable("Accounts");
+                    b.ToTable("Accounts", (string)null);
                 });
 
             modelBuilder.Entity("API.Models.Roles", b =>
@@ -195,7 +195,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("API.Model.Book", b =>
